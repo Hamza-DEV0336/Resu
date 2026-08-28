@@ -1,19 +1,20 @@
-// Header and Footer Components
+// js/components.js
 class WebsiteComponents {
     constructor() {
+        // Logo as inline SVG
+        const logoSVG = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='150' height='50'%3E%3Crect width='150' height='50' fill='%23c9a96e'/%3E%3Ctext x='75' y='32' text-anchor='middle' fill='white' font-size='16' font-family='serif' font-weight='bold'%3EGURU PALACE%3C/text%3E%3C/svg%3E";
+        
         this.headerHTML = `
-            <!-- Preloader -->
             <div class="preloader">
                 <div class="loader">
-                    <img src="images/logo.png" alt="Guru Palace" onerror="this.style.display='none'">
+                    <img src="${logoSVG}" alt="Guru Palace">
                 </div>
             </div>
 
-            <!-- Navigation -->
             <nav class="navbar">
                 <div class="nav-container">
                     <a href="index.html" class="nav-logo">
-                        <img src="images/logo.png" alt="Guru Palace Logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%2250%22%3E%3Crect width=%22150%22 height=%2250%22 fill=%22%23c9a96e%22/%3E%3Ctext x=%2275%22 y=%2230%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2216%22 font-family=%22serif%22%3EGuru Palace%3C/text%3E%3C/svg%3E'">
+                        <img src="${logoSVG}" alt="Guru Palace Logo">
                     </a>
                     <ul class="nav-menu">
                         <li class="nav-item"><a href="index.html" class="nav-link" data-page="index">Home</a></li>
@@ -38,12 +39,11 @@ class WebsiteComponents {
         `;
 
         this.footerHTML = `
-            <!-- Footer -->
             <footer class="footer">
                 <div class="container">
                     <div class="footer-grid">
                         <div class="footer-col">
-                            <img src="images/logo.png" alt="Guru Palace" class="footer-logo" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22150%22 height=%2250%22%3E%3Crect width=%22150%22 height=%2250%22 fill=%22%23c9a96e%22/%3E%3Ctext x=%2275%22 y=%2230%22 text-anchor=%22middle%22 fill=%22white%22 font-size=%2216%22 font-family=%22serif%22%3EGuru Palace%3C/text%3E%3C/svg%3E'">
+                            <img src="${logoSVG}" alt="Guru Palace" class="footer-logo">
                             <p>Experience the finest Indian cuisine in an elegant and welcoming atmosphere.</p>
                             <div class="social-links">
                                 <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
@@ -89,14 +89,12 @@ class WebsiteComponents {
                 </div>
             </footer>
 
-            <!-- Back to Top Button -->
             <button class="back-to-top" id="backToTop" aria-label="Back to top">
                 <i class="fas fa-arrow-up"></i>
             </button>
         `;
     }
 
-    // Initialize components
     init() {
         this.injectHeader();
         this.injectFooter();
@@ -104,35 +102,27 @@ class WebsiteComponents {
         this.initializeNavigation();
     }
 
-    // Inject header at the beginning of body
     injectHeader() {
         const body = document.body;
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = this.headerHTML;
-        
-        // Insert header elements at the beginning of body
         while (tempDiv.firstChild) {
             body.insertBefore(tempDiv.firstChild, body.firstChild);
         }
     }
 
-    // Inject footer at the end of body
     injectFooter() {
         const body = document.body;
         const tempDiv = document.createElement('div');
         tempDiv.innerHTML = this.footerHTML;
-        
-        // Insert footer elements at the end of body
         while (tempDiv.firstChild) {
             body.appendChild(tempDiv.firstChild);
         }
     }
 
-    // Set active navigation link based on current page
     setActiveNavLink() {
         const currentPage = this.getCurrentPage();
         const navLinks = document.querySelectorAll('.nav-link');
-        
         navLinks.forEach(link => {
             const linkPage = link.getAttribute('data-page');
             if (linkPage === currentPage) {
@@ -141,11 +131,9 @@ class WebsiteComponents {
         });
     }
 
-    // Get current page from URL
     getCurrentPage() {
         const path = window.location.pathname;
         const page = path.split('/').pop();
-        
         if (!page || page === '' || page === 'index.html') {
             return 'index';
         } else {
@@ -153,13 +141,11 @@ class WebsiteComponents {
         }
     }
 
-    // Initialize navigation functionality
     initializeNavigation() {
         const navbar = document.querySelector('.navbar');
         const navToggle = document.querySelector('.nav-toggle');
         const navMenu = document.querySelector('.nav-menu');
 
-        // Add scrolled class on scroll
         window.addEventListener('scroll', () => {
             if (window.scrollY > 100) {
                 navbar.classList.add('scrolled');
@@ -168,7 +154,6 @@ class WebsiteComponents {
             }
         });
 
-        // Mobile navigation toggle
         if (navToggle) {
             navToggle.addEventListener('click', () => {
                 navMenu.classList.toggle('active');
@@ -176,7 +161,6 @@ class WebsiteComponents {
             });
         }
 
-        // Close mobile menu when clicking a link
         document.querySelectorAll('.nav-link').forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
@@ -186,7 +170,6 @@ class WebsiteComponents {
     }
 }
 
-// Initialize components when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
     const components = new WebsiteComponents();
     components.init();
