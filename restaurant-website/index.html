@@ -11,40 +11,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <!-- Preloader -->
-    <div class="preloader">
-        <div class="loader">
-            <img src="images/logo.png" alt="Guru Palace">
-        </div>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <img src="images/logo.png" alt="Guru Palace Logo">
-            </a>
-            <ul class="nav-menu">
-                <li class="nav-item"><a href="index.html" class="nav-link active">Home</a></li>
-                <li class="nav-item"><a href="menu.html" class="nav-link">Menu</a></li>
-                <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
-                <li class="nav-item"><a href="reservations.html" class="nav-link">Reservations</a></li>
-                <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
-            </ul>
-            <div class="nav-actions">
-                <a href="tel:+1234567890" class="nav-phone">
-                    <i class="fas fa-phone"></i> (123) 456-7890
-                </a>
-                <a href="reservations.html" class="btn-reserve">Reserve Now</a>
-            </div>
-            <div class="nav-toggle">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </nav>
-
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-slider">
@@ -235,62 +201,9 @@
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <img src="images/logo.png" alt="Guru Palace" class="footer-logo">
-                    <p>Experience the finest Indian cuisine in an elegant and welcoming atmosphere.</p>
-                    <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-yelp"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="index.html">Home</a></li>
-                        <li><a href="menu.html">Menu</a></li>
-                        <li><a href="about.html">About Us</a></li>
-                        <li><a href="reservations.html">Reservations</a></li>
-                        <li><a href="contact.html">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contact Info</h3>
-                    <ul class="contact-info">
-                        <li><i class="fas fa-map-marker-alt"></i> 123 Main Street, City, State 12345</li>
-                        <li><i class="fas fa-phone"></i> (123) 456-7890</li>
-                        <li><i class="fas fa-envelope"></i> info@gurupalace.com</li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Opening Hours</h3>
-                    <ul class="opening-hours">
-                        <li><span>Monday - Thursday</span> 11:00 AM - 10:00 PM</li>
-                        <li><span>Friday - Saturday</span> 11:00 AM - 11:00 PM</li>
-                        <li><span>Sunday</span> 12:00 PM - 9:00 PM</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2024 Guru Palace Restaurant. All rights reserved.</p>
-                <div class="footer-links">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Back to Top Button -->
-    <button class="back-to-top" id="backToTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
+    <!-- Include components first -->
+    <script src="js/components.js"></script>
+    <!-- Include main functionality -->
     <script src="js/main.js"></script>
 </body>
 </html>
